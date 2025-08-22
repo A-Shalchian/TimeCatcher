@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "TimeCatcher",
+  "version": "1.0.0",
+  "description": "Track time spent on social media sites",
+  "permissions": [
+    "alarms",
+    "storage",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://www.youtube.com/*",
+    "*://www.tiktok.com/*",
+    "*://twitter.com/*",
+    "*://x.com/*",
+    "*://www.instagram.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*",
+        "*://www.tiktok.com/*",
+        "*://twitter.com/*",
+        "*://x.com/*",
+        "*://www.instagram.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "TimeCatcher - View Usage"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "64": "icons/icon64.png",
+    "128": "icons/icon128.png"
+  }
+}
